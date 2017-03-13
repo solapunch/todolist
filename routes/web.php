@@ -11,6 +11,5 @@
 |
 */
 
-Route::get('todo', function () {
-    return view('todo');
-});
+Route::get('todo', 'TodoController@index');
+Route::post('todo', 'TodoController@index');
