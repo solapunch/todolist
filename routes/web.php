@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//test
 Route::get('todo', 'TodoController@index');
 Route::post('todo', 'TodoController@store');
 Route::delete('todo/{td}', 'TodoController@destroy');

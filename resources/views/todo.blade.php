@@ -13,7 +13,7 @@
 						@foreach($todo as $td)
 	                    <form action="{{ url('todo/'.$td->id_todo) }}" method="POST">
 	                        {{ csrf_field() }} {{ method_field('DELETE') }}
-	                        <li>{{ $td->item }}&nbsp;&nbsp;&nbsp;
+	                        <li>{{ $td->item }}
 	                            <input type="hidden" name="_method" value="DELETE">
 	                            <button type="submit" name="delete" class="btn btn-danger">X</button>
 	                        </li>
