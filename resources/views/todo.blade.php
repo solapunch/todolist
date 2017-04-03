@@ -15,25 +15,27 @@
 	                        {{ csrf_field() }} {{ method_field('DELETE') }}
 	                        <li>{{ $td->item }}
 	                            <input type="hidden" name="_method" value="DELETE">
+	                            <a href="{{ route('todo.edit', $td->id_todo) }}" class="btn btn-xs btn-warning">Update</a>
 	                            <button type="submit" name="delete" class="btn btn-danger">X</button>
 	                        </li>
 	                    @endforeach
                     	</form>
 					</ul>
+					@if(isset($todo_edit))
+					<form action="{{ route('todo.update') }}" method="POST">
+					<input type="hidden" name="id_todo" value="{{ $todo_edit->id_todo }}">
+					@else
 					<form action="todo" method="POST">
-						{{ csrf_field() }}			
-						<div class="row">
-							<div class="col-lg-3">
-								<div class="form-group">
-									<input type="text" class="form-control" name="todo_item" placeholder="Item baru...">
-								</div>
-							</div>
-						<div class="col-lg-1">
-							<button type="submit" class="btn btn-success">Add</button>
+					@endif
+						{{ csrf_field() }}	
+						<div class="form-group">
+							<input type="text" class="form-control" name="todo_item" placeholder="Item baru..." @if(isset($todo_edit)) value="{{ $todo_edit->item }}" @endif>
 						</div>
-						<div class= "col-lg-8">
-						</div>
-					</div>
+						@if(isset($todo_edit))
+						<button type="submit" class="btn btn-warning">Update</button>
+						@else
+						<button type="submit" class="btn btn-success">Add</button>
+						@endif
 				</form>
 				<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 			</div>
