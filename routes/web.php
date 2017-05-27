@@ -11,9 +11,13 @@
 |
 */
 //test
+
 Route::get('todo', 'TodoController@index');
 Route::post('todo', 'TodoController@store');
 Route::delete('todo/{td}', 'TodoController@destroy');
 
 Route::get('todo/{id}/edit', 'TodoController@edit')->name('todo.edit');
 Route::post('todo/edit', 'TodoController@update')->name('todo.update');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
